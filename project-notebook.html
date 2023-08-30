@@ -12338,7 +12338,7 @@ submission_new_hpo.csv       2023-08-30 03:17:19  new features with hyperparamet
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="New-Score-of-0.796">New Score of <code>0.796</code><a class="anchor-link" href="#New-Score-of-0.796">¶</a></h4>
+<h4 id="New-Score-of-0.46">New Score of <code>0.46</code><a class="anchor-link" href="#New-Score-of-0.46">¶</a></h4>
 </div>
 </div>
 </div>
@@ -12428,42 +12428,6 @@ submission_new_hpo.csv       2023-08-30 03:17:19  new features with hyperparamet
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Hyperparameter-table">Hyperparameter table<a class="anchor-link" href="#Hyperparameter-table">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># OBS: making the dataframe like this doesn't make much sense, because I trained more than 3 hyperparameters in a single iteration.</span>
-<span class="c1"># As an alternative, I will display the experiment leaderboad, which will show the top models resulting from the best hyperparameter combinations </span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># The 3 hyperparameters we tuned with the kaggle score as the result</span>
-<span class="c1"># pd.DataFrame({</span>
-<span class="c1">#     "model": ["initial", "add_features", "hpo"],</span>
-<span class="c1">#     "hpo1": [?, ?, ?],</span>
-<span class="c1">#     "hpo2": [?, ?, ?],</span>
-<span class="c1">#     "hpo3": [?, ?, ?],</span>
-<span class="c1">#     "score": [?, ?, ?]</span>
-<span class="c1"># })</span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -12570,10 +12534,10 @@ submission_new_hpo.csv       2023-08-30 03:17:19  new features with hyperparamet
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">summary_df</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">summary_df</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -12583,10 +12547,15 @@ submission_new_hpo.csv       2023-08-30 03:17:19  new features with hyperparamet
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>'|    | model        | hpo1                                                                                                                                                                                | hpo2                                                                                                                                                                                    | hpo3                                                                                                                                                                           |   score |\n|---:|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------:|\n|  0 | initial      | default                                                                                                                                                                             | default                                                                                                                                                                                 | default                                                                                                                                                                        | 1.77544 |\n|  1 | add_features | default                                                                                                                                                                             | default                                                                                                                                                                                 | default                                                                                                                                                                        | 0.77708 |\n|  2 | hpo          | GBM (LightGBM) : num_boost_round: [lower=100, upper=500], num_leaves:[lower=6, upper=10], learning_rate:[lower=0.001, upper=0.1, log scale], applying random search with 200 trials | XGB (XGBoost): n_estimators : [lower=100, upper=500], max_depth : [lower=6, upper=10], eta (learning_rate) : [lower=0.001, upper=0.1, log scale] applying random search with 200 trials | CAT (CATBoost) : iterations : [lower=100, upper=500], depth : [lower=6, upper=10], learning_rate  : [lower=0.001, upper=0.1, log scale] applying random search with 200 trials | 0.46467 |'</pre>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>|    | model        | hpo1                                                                                                                                                                                | hpo2                                                                                                                                                                                    | hpo3                                                                                                                                                                           |   score |
+|---:|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------:|
+|  0 | initial      | default                                                                                                                                                                             | default                                                                                                                                                                                 | default                                                                                                                                                                        | 1.77544 |
+|  1 | add_features | default                                                                                                                                                                             | default                                                                                                                                                                                 | default                                                                                                                                                                        | 0.77708 |
+|  2 | hpo          | GBM (LightGBM) : num_boost_round: [lower=100, upper=500], num_leaves:[lower=6, upper=10], learning_rate:[lower=0.001, upper=0.1, log scale], applying random search with 200 trials | XGB (XGBoost): n_estimators : [lower=100, upper=500], max_depth : [lower=6, upper=10], eta (learning_rate) : [lower=0.001, upper=0.1, log scale] applying random search with 200 trials | CAT (CATBoost) : iterations : [lower=100, upper=500], depth : [lower=6, upper=10], learning_rate  : [lower=0.001, upper=0.1, log scale] applying random search with 200 trials | 0.46467 |
+</pre>
 </div>
 </div>
 </div>
