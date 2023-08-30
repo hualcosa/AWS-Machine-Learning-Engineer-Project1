@@ -27,7 +27,7 @@ Interestingly the model performed slightly worse in the training set, but better
 
 ### If you were given more time with this dataset, where do you think you would spend more time?
 I would try testing a wider range of values for the hyperparameters.
-I would also focus on the hyperparameters of the types of models that performed better in the third interaction, so I could fine-tune them.
+I would also focus on experimenting with more types of hyperparameters and evaluating their effects.
 
 ### Create a table with the models you ran, the hyperparameters modified, and the kaggle score.
 |    | model        | hpo1                                                                                                                                                                                | hpo2                                                                                                                                                                                    | hpo3                                                                                                                                                                           |   score |
@@ -38,15 +38,14 @@ I would also focus on the hyperparameters of the types of models that performed 
 
 ### Create a line plot showing the top model score for the three (or more) training runs during the project.
 
-TODO: Replace the image below with your own.
+![image](https://github.com/hualcosa/AWS-Machine-Learning-Engineer-Project1/assets/46836901/b8c8b2b5-8009-4e86-8126-3e5f42460399)
 
-![model_train_score.png](img/model_train_score.png)
 
 ### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.
 
-TODO: Replace the image below with your own.
 
-![model_test_score.png](img/model_test_score.png)
+![image](https://github.com/hualcosa/AWS-Machine-Learning-Engineer-Project1/assets/46836901/66e48774-2809-460f-8958-fbfe263a6da2)
+
 
 ## Summary
 This project showcased the use of AutoMl to predict the count of rented bikes given features like date, time of the day, season, weather, temperature, etc. For this, we used
