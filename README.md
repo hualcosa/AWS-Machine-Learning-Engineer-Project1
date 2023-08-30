@@ -48,6 +48,6 @@ I would also focus on experimenting with more types of hyperparameters and evalu
 
 
 ## Summary
-This project showcased the use of AutoMl to predict the count of rented bikes given features like date, time of the day, season, weather, temperature, etc. For this, we used
-autogluon's TabularPredictor to find the best model. It was performed some basic feature engineering, demonstrating how helpful it can be in improving model performance. A final
+This project showcased the use of AutoML to predict the count of rented bikes given features like date, time of the day, season, weather, temperature, etc. For this, we used
+Autogluon's TabularPredictor to find the best model. It was performed some basic feature engineering, demonstrating how helpful it can be in improving model performance. A final
 step was to perform hyperparameter tuning by specifying different model variations that the TabularPredictor should try to fit.
