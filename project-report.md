@@ -7,7 +7,7 @@ Predictions can not be smaller than zero. Otherwise they are rejected by kaggle.
 
 ### What was the top ranked model that performed?
 The best performing model was WeightedEnsemble_L3. As the name suggest, it is an ensemble method, which generates predictions
-through an weigthed average of the predictions of L2(layer 2) models. It achieved an RMSE of 28.912493. 
+through an weigthed average of the predictions of L2(layer 2) models. It achieved a public score of 0.46467. 
 
 ## Exploratory data analysis and feature creation
 ### What did the exploratory analysis find and how did you add additional features?
@@ -23,21 +23,18 @@ influencing the counts.
 
 ## Hyper parameter tuning
 ### How much better did your model preform after trying different hyper parameters?
-Interestingly the model performed slightly worse than in the second iteration. The best model had a RMSE of 29.00. Two possibilities might have ocurred:
-1. I have not defined the hyperparameter search space properly, like not setting an adequate range of values for the hyperparameters
-2. I have run the tuning job for a very short time(only 15 min). This might not have been enough for the job to search for all, or at least most
-of the hyperparamter search space, resulting in a suboptimal solution.
+Interestingly the model performed slightly worse in the training set, but better on the test set. The best-tuned model had a RMSE of 33.46. But when evaluated against the test set it had the best public score of the three iterations.
 
 ### If you were given more time with this dataset, where do you think you would spend more time?
 I would try testing a wider range of values for the hyperparameters.
-I would also focus on the hyperparameters of the types of models that performed better in the third interaction, so I could fine tune them.
+I would also focus on the hyperparameters of the types of models that performed better in the third interaction, so I could fine-tune them.
 
 ### Create a table with the models you ran, the hyperparameters modified, and the kaggle score.
-|model|hpo1|hpo2|hpo3|score|
-|--|--|--|--|--|
-|initial|?|?|?|?|
-|add_features|?|?|?|?|
-|hpo|?|?|?|?|
+|    | model        | hpo1                                                                                                                                                                                | hpo2                                                                                                                                                                                    | hpo3                                                                                                                                                                           |   score |
+|---:|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------:|
+|  0 | initial      | default                                                                                                                                                                             | default                                                                                                                                                                                 | default                                                                                                                                                                        | 1.77544 |
+|  1 | add_features | default                                                                                                                                                                             | default                                                                                                                                                                                 | default                                                                                                                                                                        | 0.77708 |
+|  2 | hpo          | GBM (LightGBM) : num_boost_round: [lower=100, upper=500], num_leaves:[lower=6, upper=10], learning_rate:[lower=0.001, upper=0.1, log scale], applying random search with 200 trials | XGB (XGBoost): n_estimators : [lower=100, upper=500], max_depth : [lower=6, upper=10], eta (learning_rate) : [lower=0.001, upper=0.1, log scale] applying random search with 200 trials | CAT (CATBoost) : iterations : [lower=100, upper=500], depth : [lower=6, upper=10], learning_rate  : [lower=0.001, upper=0.1, log scale] applying random search with 200 trials | 0.46467 |
 
 ### Create a line plot showing the top model score for the three (or more) training runs during the project.
 
